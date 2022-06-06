@@ -1,5 +1,9 @@
 //import logo from "./logo.svg";
 import "./App.css";
+import { AddColor } from "./AddColor";
+import React from "react";
+import { AddMovie } from "./AddMovie";
+import { Message } from "./Message";
 
 function App() {
  const movies=[{name:"Ratatouille",
@@ -46,22 +50,13 @@ function App() {
 ]
   return (
     <div className="App">
-      <div className="movie-list">
-    {movies.map((disp)=>(<Message name={disp.name} image={disp.image} rating={disp.rating} description={disp.description}/>))}
-    </div>
+      {/* <div className="movie-list"> */}
+    {/* {movies.map((disp)=>(<Message name={disp.name} image={disp.image} rating={disp.rating} description={disp.description}/>))} */}
+    {/* <AddColor/> */}
+    <AddMovie/>
+
+    {/* </div> */}
     </div>
   );
 }
- 
-
- function Message({name,image,rating,description}){
-     return  <div className="movie-container">
-        <img className="movie-poster" src={image} alt={name}/>
-        <div className="movie-specs">
-            <h3 className="movie-name">{name}</h3>
-            <p className="movie-rating">⭐{rating}</p>
-        </div>
-        <p className="movie-summary">{description}</p>
-      </div>;
- }
  export default App;
