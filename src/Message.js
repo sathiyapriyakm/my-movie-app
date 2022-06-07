@@ -6,9 +6,9 @@ export function Message({ name, image, rating, description }) {
     color: rating > 8 ? "green" : "red",
   };
   const [show, setShow] = useState(true);
-  const paraStyle = {
-    display: show ? "block" : "none",
-  };
+  // const paraStyle = {
+  //   display: show ? "block" : "none",
+  // };
 
   return <div className="movie-container">
     <img className="movie-poster" src={image} alt={name} />

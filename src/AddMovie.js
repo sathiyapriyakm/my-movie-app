@@ -1,8 +1,5 @@
 import React from "react";
 import { useState } from "react";
-import {Message} from "./Message";
-
-
 
 export function AddMovie({movieList,setMovieList}) {
   const [name, setName] = useState('');
