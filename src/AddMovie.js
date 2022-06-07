@@ -3,23 +3,7 @@ import { useState } from "react";
 import {Message} from "./Message";
 
 
-export function AddMovie() {
-  const INITIAL_MOVIE_LIST=[{name:"Ratatouille",
-  image:"https://resizing.flixster.com/gL_JpWcD7sNHNYSwI1ff069Yyug=/ems.ZW1zLXByZC1hc3NldHMvbW92aWVzLzc4ZmJhZjZiLTEzNWMtNDIwOC1hYzU1LTgwZjE3ZjQzNTdiNy5qcGc=",
-  rating:"8",
-  description:"Remy, a rat, aspires to become a renowned French chef. However, he fails to realise that people despise rodents and will never enjoy a meal cooked by him."
-  },
-  {name:"Baahubali",
-  image:"https://flxt.tmsimg.com/assets/p11546593_p_v10_af.jpg",
-  rating:"8",
-  description:"In the kingdom of Mahishmati, Shivudu falls in love with a young warrior woman. While trying to woo her, he learns about the conflict-ridden past of his family and his true legacy."
-  },
-  {name:"Jai Bhim",
-  image:"https://m.media-amazon.com/images/M/MV5BY2Y5ZWMwZDgtZDQxYy00Mjk0LThhY2YtMmU1MTRmMjVhMjRiXkEyXkFqcGdeQXVyMTI1NDEyNTM5._V1_FMjpg_UX1000_.jpg",
-  rating:"8.8",
-  description:"A tribal woman and a righteous lawyer battle in court to unravel the mystery around the disappearance of her husband, who was picked up the police on a false case."
-  }];
-  const [movieList, setMovieList] = useState(INITIAL_MOVIE_LIST);
+export function AddMovie({movieList,setMovieList}) {
   const [name, setName] = useState('');
   const [image, setImage] = useState('');
   const [rating, setRating] = useState('');

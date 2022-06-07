@@ -4,9 +4,12 @@ import { AddColor } from "./AddColor";
 import React from "react";
 import { AddMovie } from "./AddMovie";
 import { Message } from "./Message";
+import { useState } from "react";
+import { Routes,Route,Link ,Navigate} from "react-router-dom";
+
 
 function App() {
- const movies=[{name:"Ratatouille",
+  const INITIAL_MOVIE_LIST=[{name:"Ratatouille",
                 image:"https://resizing.flixster.com/gL_JpWcD7sNHNYSwI1ff069Yyug=/ems.ZW1zLXByZC1hc3NldHMvbW92aWVzLzc4ZmJhZjZiLTEzNWMtNDIwOC1hYzU1LTgwZjE3ZjQzNTdiNy5qcGc=",
                 rating:"8",
                 description:"Remy, a rat, aspires to become a renowned French chef. However, he fails to realise that people despise rodents and will never enjoy a meal cooked by him."
@@ -45,18 +48,48 @@ function App() {
               image:"https://m.media-amazon.com/images/I/71miTEyKvYL._SL1112_.jpg",
               rating:"7.9",
               description:"M S Dhoni, a boy from Ranchi, aspires to play cricket for India. Though he initially tries to please his father by working for the Indian Railways, he ultimately decides to chase his dreams."
-              },
-
-]
+              },]
+  const [movieList, setMovieList] = useState(INITIAL_MOVIE_LIST);        
   return (
     <div className="App">
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/color-game">Color Game</Link>
+          </li><li>
+            <Link to="/add-movie">Add Movie</Link>
+          </li>
+        </ul>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/color-game" element={<AddColor/>}/>
+        <Route path="/add-movie" element={<AddMovie movieList={movieList} setMovieList={setMovieList}/>}/>
+        <Route path="/404" element={<NotFound/>}/>
+        <Route path="/films" element={<Navigate replace to="/movies"/>}/>
+        <Route path="/*" element={<Navigate replace to="/404"/>}/>
+      </Routes>
       {/* <div className="movie-list"> */}
     {/* {movies.map((disp)=>(<Message name={disp.name} image={disp.image} rating={disp.rating} description={disp.description}/>))} */}
     {/* <AddColor/> */}
-    <AddMovie/>
+    {/* <AddMovie/> */}
 
     {/* </div> */}
     </div>
   );
+}
+function NotFound(){
+  return <div className="page-not-found">
+    <img src="https://2.bp.blogspot.com/-m_ZWnDKS-Nw/XOauDQpO6-I/AAAAAAAzF0E/F-OPcHmjt-o2TWAKjNUL8SNRAAfpIcEgwCLcBGAs/s1600/AW3876169_00.gif" alt= "404 page not found"></img>
+  </div>
+  
+}
+function Home(){
+  return <h1>Welcome to the APP
+  </h1>
 }
  export default App;
