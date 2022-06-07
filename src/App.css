@@ -69,7 +69,7 @@ body {
 }
 .add-movie-form{
   display:flex;
-  gap:5px;
+  gap:25px;
   flex-direction: column;
   align-items: center;
   width:100%;
@@ -78,12 +78,12 @@ body {
 }
   .add-movie-name{
   width:90%;
-  height:35px;
+  height:50px;
   /* margin-top: 10px; */
 }
 .add-movie-btn{
   width:90%;
-  height:35px;
+  height:50px;
   font-size: 20px;;
   background-color:skyblue;
   /* margin-top: 10px; */

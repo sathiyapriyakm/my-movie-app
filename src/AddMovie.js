@@ -3,6 +3,7 @@ import { useState } from "react";
 import {Message} from "./Message";
 
 
+
 export function AddMovie({movieList,setMovieList}) {
   const [name, setName] = useState('');
   const [image, setImage] = useState('');
@@ -18,8 +19,6 @@ export function AddMovie({movieList,setMovieList}) {
     setDescription('');
   };
   return <div
-    className="movie-input">
-      <section><div
       className="add-movie-spec">
       <form  className="add-movie-form" onSubmit={handleSubmit}>
         <input
@@ -45,12 +44,5 @@ export function AddMovie({movieList,setMovieList}) {
 
         <button className="add-movie-btn" type="submit">ADD MOVIE</button>
       </form> 
-    </div>
-    </section>
-    <section>
-    <div className="movie-list">
-    {movieList.map((disp,index)=>(<Message key={index} name={disp.name} image={disp.image} rating={disp.rating} description={disp.description}/>))}  
-    </div>
-     </section>
-  </div>;
+    </div>;
 }

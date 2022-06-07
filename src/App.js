@@ -3,9 +3,11 @@ import "./App.css";
 import { AddColor } from "./AddColor";
 import React from "react";
 import { AddMovie } from "./AddMovie";
-import { Message } from "./Message";
 import { useState } from "react";
 import { Routes,Route,Link ,Navigate} from "react-router-dom";
+import { Home } from "./Home";
+import { NotFound } from "./NotFound";
+import { Movie } from "./Movie";
 
 
 function App() {
@@ -60,7 +62,10 @@ function App() {
           <li>
             <Link to="/color-game">Color Game</Link>
           </li><li>
-            <Link to="/add-movie">Add Movie</Link>
+            <Link to="/Movies/add">Add Movie</Link>
+          </li>
+          <li>
+            <Link to="/Movies">Movies</Link>
           </li>
         </ul>
       </nav>
@@ -68,7 +73,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/color-game" element={<AddColor/>}/>
-        <Route path="/add-movie" element={<AddMovie movieList={movieList} setMovieList={setMovieList}/>}/>
+        <Route path="/Movies" element={<Movie movieList={movieList} />}/>
+        <Route path="/Movies/add" element={<AddMovie movieList={movieList} setMovieList={setMovieList}/>}/>
         <Route path="/404" element={<NotFound/>}/>
         <Route path="/films" element={<Navigate replace to="/movies"/>}/>
         <Route path="/*" element={<Navigate replace to="/404"/>}/>
@@ -82,14 +88,5 @@ function App() {
     </div>
   );
 }
-function NotFound(){
-  return <div className="page-not-found">
-    <img src="https://2.bp.blogspot.com/-m_ZWnDKS-Nw/XOauDQpO6-I/AAAAAAAzF0E/F-OPcHmjt-o2TWAKjNUL8SNRAAfpIcEgwCLcBGAs/s1600/AW3876169_00.gif" alt= "404 page not found"></img>
-  </div>
-  
-}
-function Home(){
-  return <h1>Welcome to the APP
-  </h1>
-}
+
  export default App;
