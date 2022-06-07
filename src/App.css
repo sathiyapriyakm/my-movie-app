@@ -74,7 +74,7 @@ body {
   align-items: center;
   width:100%;
   background-color: lightslategray;
-  padding:20px 20px;
+  padding:100px 100px;
 }
   .add-movie-name{
   width:90%;
@@ -94,4 +94,11 @@ body {
   justify-content: center;
   height:90vh;
   object-fit:cover;
+}
+.nav-bar{
+  display:flex;
+  gap:15px;
+  justify-content: left;
+  margin:15px 15px 15px 15px;
+
 }

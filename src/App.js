@@ -54,8 +54,8 @@ function App() {
   const [movieList, setMovieList] = useState(INITIAL_MOVIE_LIST);        
   return (
     <div className="App">
-      <nav>
-        <ul>
+      <nav className="nav-bar">
+        {/* <ul>
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -67,7 +67,11 @@ function App() {
           <li>
             <Link to="/Movies">Movies</Link>
           </li>
-        </ul>
+        </ul> */}
+        <span> <Link to="/">Home</Link> </span>
+        <span><Link to="/Movies">Movies</Link></span>
+        <span><Link to="/Movies/add">Add Movie</Link></span>
+        <span><Link to="/color-game">Color Game</Link></span>
       </nav>
 
       <Routes>
