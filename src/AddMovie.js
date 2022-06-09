@@ -1,45 +1,66 @@
 import React from "react";
 import { useState } from "react";
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+
 
 export function AddMovie({movieList,setMovieList}) {
   const [name, setName] = useState('');
-  const [image, setImage] = useState('');
+  const [poster, setPoster] = useState('');
   const [rating, setRating] = useState('');
-  const [description, setDescription] = useState('');
+  const [summary, setSummary] = useState('');
+  const [trailer, setTrailer] = useState('');
   const handleSubmit = event => {
-    setMovieList([...movieList, {"name": name,"image":image,"rating":rating,"description":description}]);
+    setMovieList([...movieList, {"name": name,"poster":poster,"rating":rating,"summary":summary,"trailer":trailer}]);
     event.preventDefault(); //prevent page refresh
     // clear all input values in the form
     setName('');
-    setImage('');
+    setPoster('');
     setRating('');
-    setDescription('');
+    setSummary('');
+    setTrailer('');
   };
   return <div
       className="add-movie-spec">
       <form  className="add-movie-form" onSubmit={handleSubmit}>
-        <input
-         className="add-movie-name"
-          placeholder="Name" value={name}
-          onChange={event => setName(event.target.value)}
-        />
-        <input
-          className="add-movie-name"
-          placeholder="Poster" value={image}
-          onChange={event => setImage(event.target.value)}
-        />
-        <input
+        
+        <TextField
         className="add-movie-name"
-        placeholder="Rating" value={rating}
-        onChange={event => setRating(event.target.value)}
+        label="Name"
+        type="text"
+        value={name}
+        onChange={event => setName(event.target.value)}
+        />
+        <TextField
+        className="add-movie-name"
+        label="Poster"
+        type="text"
+        value={poster}
+        onChange={event => setPoster(event.target.value)}
+        />
+       <TextField
+       className="add-movie-name"
+       label="Rating"
+       type="text"
+       value={rating}
+       onChange={event => setRating(event.target.value)}
        />
-       <input
-         className="add-movie-name"
-         placeholder="Summary" value={description}
-         onChange={event => setDescription(event.target.value)}
-       />
-
-        <button className="add-movie-btn" type="submit">ADD MOVIE</button>
+       <TextField
+          className="add-movie-name"
+          label="Summary"
+          type="text"
+          value={summary}
+          onChange={event => setSummary(event.target.value)}
+        />
+       <TextField
+          className="add-movie-name"
+          label="Trailer"
+          type="text"
+          value={trailer}
+          onChange={event => setTrailer(event.target.value)}
+        />
+        {/* <button className="add-movie-btn" type="submit">ADD MOVIE</button> */}
+        <Button className="add-movie-btn" variant="contained" type="submit">ADD MOVIE</Button>
       </form> 
     </div>;
 }
