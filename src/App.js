@@ -4,7 +4,7 @@ import { AddColor } from "./AddColor";
 import React from "react";
 import { AddMovie } from "./AddMovie";
 import { useState } from "react";
-import { Routes,Route,Link ,Navigate, useNavigate} from "react-router-dom";
+import { Routes,Route ,Navigate, useNavigate} from "react-router-dom";
 import { Home } from "./Home";
 import { NotFound } from "./NotFound";
 import { Movie } from "./Movie";
@@ -12,7 +12,11 @@ import { MovieDetails } from "./MovieDetails";
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
-
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import Paper from '@mui/material/Paper';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import {TicTacToe} from "./TicTacToe";
 
 function App() {
 
@@ -20,7 +24,7 @@ function App() {
   const INITIAL_MOVIE_LIST=[
 
     {
-    
+     "id":"100",
     "name": "RRR",
     "poster":
     "https://englishtribuneimages.blob.core.windows.net/gallary-content/2021/6/Desk/2021_6$largeimg_977224513.JPG",
@@ -29,7 +33,7 @@ function App() {
     "trailer": "https://www.youtube.com/embed/f_vbAtFSEc0"
     },
     {
-    
+      "id":"101",
     "name": "Iron man 2",
     "poster": "https://m.media-amazon.com/images/M/MV5BMTM0MDgwNjMyMl5BMl5BanBnXkFtZTcwNTg3NzAzMw@@._V1_FMjpg_UX1000_.jpg",
     "rating": 7,
@@ -37,7 +41,7 @@ function App() {
     "trailer": "https://www.youtube.com/embed/wKtcmiifycU"
     },
     {
-    
+      "id":"102",
     "name": "No Country for Old Men",
     "poster": "https://upload.wikimedia.org/wikipedia/en/8/8b/No_Country_for_Old_Men_poster.jpg",
     "rating": 8.1,
@@ -45,7 +49,7 @@ function App() {
     "trailer": "https://www.youtube.com/embed/38A__WT3-o0"
     },
     {
-    
+      "id":"103",
     "name": "Jai Bhim",
     "poster": "https://m.media-amazon.com/images/M/MV5BY2Y5ZWMwZDgtZDQxYy00Mjk0LThhY2YtMmU1MTRmMjVhMjRiXkEyXkFqcGdeQXVyMTI1NDEyNTM5._V1_FMjpg_UX1000_.jpg",
     "summary": "A tribal woman and a righteous lawyer battle in court to unravel the mystery around the disappearance of her husband, who was picked up the police on a false case",
@@ -53,7 +57,7 @@ function App() {
     "trailer": "https://www.youtube.com/embed/nnXpbTFrqXA"
     },
     {
-    
+      "id":"104",
     "name": "The Avengers",
     "rating": 8,
     "summary": "Marvel's The Avengers (classified under the name Marvel Avengers\n Assemble in the United Kingdom and Ireland), or simply The Avengers, is\n a 2012 American superhero film based on the Marvel Comics superhero team\n of the same name.",
@@ -61,7 +65,7 @@ function App() {
     "trailer": "https://www.youtube.com/embed/eOrNdBpGMv8"
     },
     {
-    
+      "id":"105",
     "name": "Interstellar",
     "poster": "https://m.media-amazon.com/images/I/A1JVqNMI7UL._SL1500_.jpg",
     "rating": 8.6,
@@ -69,7 +73,7 @@ function App() {
     "trailer": "https://www.youtube.com/embed/zSWdZVtXT7E"
     },
     {
-    
+      "id":"106",
     "name": "Baahubali",
     "poster": "https://flxt.tmsimg.com/assets/p11546593_p_v10_af.jpg",
     "rating": 8,
@@ -77,7 +81,7 @@ function App() {
     "trailer": "https://www.youtube.com/embed/sOEg_YZQsTI"
     },
     {
-    
+      "id":"107",
     "name": "Ratatouille",
     "poster": "https://resizing.flixster.com/gL_JpWcD7sNHNYSwI1ff069Yyug=/ems.ZW1zLXByZC1hc3NldHMvbW92aWVzLzc4ZmJhZjZiLTEzNWMtNDIwOC1hYzU1LTgwZjE3ZjQzNTdiNy5qcGc=",
     "rating": 8,
@@ -87,8 +91,17 @@ function App() {
     ]
    const [movieList, setMovieList] = useState(INITIAL_MOVIE_LIST);   
    const navigate=useNavigate();
+   const [mode,setMode]=useState("light")
+   
+const darkTheme = createTheme({
+  palette: {
+    mode: mode,
+  },
+});
 
   return (
+    <ThemeProvider theme={darkTheme}>
+      <Paper elevation={4} style={{minHeight:"100vh",borderRadius:"0px"}} >
     <div className="App">
     <AppBar position="static">
     <Toolbar>
@@ -96,20 +109,31 @@ function App() {
       <Button color="inherit" onClick={()=>navigate("/Movies")}>Movies</Button>
       <Button color="inherit" onClick={()=>navigate("/Movies/add")}>Add Movies</Button>
       <Button color="inherit" onClick={()=>navigate("/color-game")}>Color Game</Button>
+      <Button color="inherit" onClick={()=>navigate("/Tic-tac-toe-game")}>TicTacToe Game</Button>
+      <Button 
+      startIcon={mode==="dark"?<Brightness7Icon/>:<Brightness4Icon/>}
+      color="inherit" 
+      onClick={()=>{setMode(mode==="light"?"dark":"light")}}>
+      {mode==="light"?"dark":"light"}theme</Button>
+    
     </Toolbar>
     </AppBar>
-      <Routes>
+    <section className="routes-container">
+    <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/Movies/:id" element={<MovieDetails movieList={movieList}/>}/>
         <Route path="/color-game" element={<AddColor/>}/>
-        <Route path="/Movies" element={<Movie movieList={movieList} />}/>
+        <Route path="/Tic-tac-toe-game" element={<TicTacToe/>}/>
+        <Route path="/Movies" element={<Movie movieList={movieList} setMovieList={setMovieList} />}/>
         <Route path="/Movies/add" element={<AddMovie movieList={movieList} setMovieList={setMovieList}/>}/>
         <Route path="/404" element={<NotFound/>}/>
         <Route path="/films" element={<Navigate replace to="/movies"/>}/>
         <Route path="/*" element={<Navigate replace to="/404"/>}/>
       </Routes>
-      
+    </section>     
     </div>
+    </Paper>
+    </ThemeProvider>
   );
 }
 

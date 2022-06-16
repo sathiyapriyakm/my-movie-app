@@ -5,10 +5,14 @@ import IconButton from '@mui/material/IconButton';
 import InfoIcon from '@mui/icons-material/Info';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import DeleteIcon from '@mui/icons-material/Delete';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
 
 // import DeleteIcon from '@mui/icons-material/Delete';
 
-export function Message({ name, poster, rating, summary ,id}) {
+export function Message({ name, poster, rating, summary ,id,movieList,setMovieList}) {
   const styles = {
     color: rating > 8 ? "green" : "red",
   };
@@ -17,9 +21,13 @@ export function Message({ name, poster, rating, summary ,id}) {
   //   display: show ? "block" : "none",
   // };
   const navigate=useNavigate();
+  const handleDelete=()=>{
 
-  return <div className="movie-container">
+  }
+
+  return <Card className="movie-container" sx={{height:"min-content"}}>
     <img className="movie-poster" src={poster} alt={name} />
+    <CardContent>
     <div className="movie-specs">
       <h3 className="movie-name">
         {name}
@@ -38,6 +46,12 @@ export function Message({ name, poster, rating, summary ,id}) {
 
     {/*Conditional rendering  */}
     {show ? <p className="movie-summary">{summary}</p> : null}
+    </CardContent>
+      <CardActions>
     <Counter />
-  </div>;
+    <IconButton aria-label="Movie-delete-button" color="primary" onClick={handleDelete}>
+        <DeleteIcon />
+      </IconButton>
+      </CardActions>
+    </Card>;
 }

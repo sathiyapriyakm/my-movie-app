@@ -10,7 +10,7 @@ export function MovieDetails({ movieList }) {
   const styles = {
     color: movie.rating > 8 ? "green" : "red",
   };
-  return <div>
+  return <div className="movie-detail-container">
     <iframe
       width="100%"
       height="650"
