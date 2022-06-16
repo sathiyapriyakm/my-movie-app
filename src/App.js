@@ -91,7 +91,7 @@ function App() {
     ]
    const [movieList, setMovieList] = useState(INITIAL_MOVIE_LIST);   
    const navigate=useNavigate();
-   const [mode,setMode]=useState("light")
+   const [mode,setMode]=useState("dark")
    
 const darkTheme = createTheme({
   palette: {
