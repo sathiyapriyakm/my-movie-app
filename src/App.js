@@ -121,7 +121,7 @@ const darkTheme = createTheme({
     <section className="routes-container">
     <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path="/Movies/:id" element={<MovieDetails movieList={movieList}/>}/>
+        <Route path="/Movies/:uniqueId" element={<MovieDetails movieList={movieList}/>}/>
         <Route path="/color-game" element={<AddColor/>}/>
         <Route path="/Tic-tac-toe-game" element={<TicTacToe/>}/>
         <Route path="/Movies" element={<Movie movieList={movieList} setMovieList={setMovieList} />}/>

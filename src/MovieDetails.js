@@ -4,8 +4,9 @@ import Button from '@mui/material/Button';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
 export function MovieDetails({ movieList }) {
-  const { id } = useParams();
-  const movie = movieList[id];
+  const { uniqueId } = useParams();
+  const movie1 = movieList.filter((mv)=>(mv.id===uniqueId));
+  const movie=movie1[0];
   const navigate = useNavigate();
   const styles = {
     color: movie.rating > 8 ? "green" : "red",

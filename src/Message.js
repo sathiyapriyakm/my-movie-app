@@ -21,8 +21,18 @@ export function Message({ name, poster, rating, summary ,id,movieList,setMovieLi
   //   display: show ? "block" : "none",
   // };
   const navigate=useNavigate();
-  const handleDelete=()=>{
-
+ const handleDelete=(deletionId)=>{
+    // const removeElemWithIdAndValue = (arr = [], targetId, targetValue) => {
+    //   const index = arr.findIndex(({ id, value }) => id === targetId && value === targetValue);
+    //   if(index >= 0) arr.splice(index, 1);
+    // }
+    
+    // const arr = [ {id: 145, value: '$ 1.024.100'}, {id: 146, value: '$ 679.200'}, {id: 147, value: '$ 679.200'} ];
+    // removeElemWithIdAndValue(arr, 1461, '$ 679.200');
+    // console.log(arr);
+     const copyMovie=movieList.filter((mv)=>(mv.id !== deletionId));
+    setMovieList(copyMovie);
+    
   }
 
   return <Card className="movie-container" sx={{height:"min-content"}}>
@@ -49,7 +59,7 @@ export function Message({ name, poster, rating, summary ,id,movieList,setMovieLi
     </CardContent>
       <CardActions>
     <Counter />
-    <IconButton aria-label="Movie-delete-button" color="primary" onClick={handleDelete}>
+    <IconButton aria-label="Movie-delete-button" color="primary" onClick={()=>handleDelete(id)}>
         <DeleteIcon />
       </IconButton>
       </CardActions>
