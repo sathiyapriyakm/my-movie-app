@@ -22,17 +22,8 @@ export function Message({ name, poster, rating, summary ,id,movieList,setMovieLi
   // };
   const navigate=useNavigate();
  const handleDelete=(deletionId)=>{
-    // const removeElemWithIdAndValue = (arr = [], targetId, targetValue) => {
-    //   const index = arr.findIndex(({ id, value }) => id === targetId && value === targetValue);
-    //   if(index >= 0) arr.splice(index, 1);
-    // }
-    
-    // const arr = [ {id: 145, value: '$ 1.024.100'}, {id: 146, value: '$ 679.200'}, {id: 147, value: '$ 679.200'} ];
-    // removeElemWithIdAndValue(arr, 1461, '$ 679.200');
-    // console.log(arr);
-     const copyMovie=movieList.filter((mv)=>(mv.id !== deletionId));
-    setMovieList(copyMovie);
-    
+    const copyMovie=movieList.filter((mv)=>(mv.id !== deletionId));
+    setMovieList(copyMovie); 
   }
 
   return <Card className="movie-container" sx={{height:"min-content"}}>
@@ -58,10 +49,14 @@ export function Message({ name, poster, rating, summary ,id,movieList,setMovieLi
     {show ? <p className="movie-summary">{summary}</p> : null}
     </CardContent>
       <CardActions>
-    <Counter />
-    <IconButton aria-label="Movie-delete-button" color="primary" onClick={()=>handleDelete(id)}>
+      <div className="movie-counter-del">
+        <div> <Counter /></div>
+   
+    <div>
+      <IconButton aria-label="Movie-delete-button" color="error" onClick={()=>handleDelete(id)}>
         <DeleteIcon />
-      </IconButton>
+      </IconButton></div>
+      </div>
       </CardActions>
     </Card>;
 }
