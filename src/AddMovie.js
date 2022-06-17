@@ -2,24 +2,35 @@ import React from "react";
 import { useState } from "react";
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
+import { useNavigate } from "react-router-dom";
 
 
-export function AddMovie({movieList,setMovieList}) {
+export function AddMovie() {
   const [name, setName] = useState('');
   const [poster, setPoster] = useState('');
   const [rating, setRating] = useState('');
   const [summary, setSummary] = useState('');
   const [trailer, setTrailer] = useState('');
-  const handleSubmit = event => {
-    setMovieList([...movieList, {"name": name,"poster":poster,"rating":rating,"summary":summary,"trailer":trailer}]);
-    event.preventDefault(); //prevent page refresh
+  const navigate=useNavigate();
+  const newMovie={"name": name,"poster":poster,"rating":rating,"summary":summary,"trailer":trailer};
+  const handleSubmit =() => {
+    fetch("https://62aa7f0d371180affbd633f8.mockapi.io/movies", {
+    method: "POST",
+    body: JSON.stringify(newMovie),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).then(() => navigate("/Movies"));
+
+    // event.preventDefault(); //prevent page refresh
     // clear all input values in the form
-    setName('');
-    setPoster('');
-    setRating('');
-    setSummary('');
-    setTrailer('');
+    // setName('');
+    // setPoster('');
+    // setRating('');
+    // setSummary('');
+    // setTrailer('');
   };
+  
   return <div
       className="add-movie-spec">
       <form  className="add-movie-form" onSubmit={handleSubmit}>
@@ -59,7 +70,6 @@ export function AddMovie({movieList,setMovieList}) {
           value={trailer}
           onChange={event => setTrailer(event.target.value)}
         />
-        {/* <button className="add-movie-btn" type="submit">ADD MOVIE</button> */}
         <Button className="add-movie-btn" variant="contained" type="submit">ADD MOVIE</Button>
       </form> 
     </div>;
