@@ -5,14 +5,11 @@ import IconButton from '@mui/material/IconButton';
 import InfoIcon from '@mui/icons-material/Info';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import DeleteIcon from '@mui/icons-material/Delete';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 
-// import DeleteIcon from '@mui/icons-material/Delete';
-
-export function Message({ name, poster, rating, summary ,id,movieList,setMovieList}) {
+export function Message({ name, poster, rating, summary ,id, deleteButton}) {
   const styles = {
     color: rating > 8 ? "green" : "red",
   };
@@ -21,12 +18,9 @@ export function Message({ name, poster, rating, summary ,id,movieList,setMovieLi
   //   display: show ? "block" : "none",
   // };
   const navigate=useNavigate();
- const handleDelete=(deletionId)=>{
-    const copyMovie=movieList.filter((mv)=>(mv.id !== deletionId));
-    setMovieList(copyMovie); 
-  }
+ 
 
-  return <Card className="movie-container" sx={{height:"min-content"}}>
+  return (<Card className="movie-container" sx={{height:"min-content"}}>
     <img className="movie-poster" src={poster} alt={name} />
     <CardContent>
     <div className="movie-specs">
@@ -50,13 +44,10 @@ export function Message({ name, poster, rating, summary ,id,movieList,setMovieLi
     </CardContent>
       <CardActions>
       <div className="movie-counter-del">
-        <div> <Counter /></div>
-   
-    <div>
-      <IconButton aria-label="Movie-delete-button" color="error" onClick={()=>handleDelete(id)}>
-        <DeleteIcon />
-      </IconButton></div>
+       <Counter />
+     {deleteButton}
       </div>
       </CardActions>
-    </Card>;
+    </Card>
+    );
 }

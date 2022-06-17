@@ -1,16 +1,27 @@
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import {useState,useEffect} from 'react';
 import Button from '@mui/material/Button';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
-export function MovieDetails({ movieList }) {
-  const { uniqueId } = useParams();
-  const movie1 = movieList.filter((mv)=>(mv.id===uniqueId));
-  const movie=movie1[0];
+export function MovieDetails() {
+  const { movieId } = useParams();
   const navigate = useNavigate();
+  const [movie,setMovie]=useState({});
   const styles = {
     color: movie.rating > 8 ? "green" : "red",
   };
+
+  console.log(movieId);
+  const getMovie=()=>{
+    fetch(`https://62aa7f0d371180affbd633f8.mockapi.io/movies/${movieId}`,{
+      method:"GET",
+    }
+    )
+    .then((data)=>(data.json()))
+    .then((mv)=>setMovie(mv));
+    }   
+  useEffect(()=>getMovie(),[]);
   return <div className="movie-detail-container">
     <iframe
       width="100%"
