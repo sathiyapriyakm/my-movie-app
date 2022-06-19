@@ -9,7 +9,7 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 
-export function Message({ name, poster, rating, summary ,id, deleteButton}) {
+export function Message({ name, poster, rating, summary ,id, deleteButton,editButton}) {
   const styles = {
     color: rating > 8 ? "green" : "red",
   };
@@ -46,6 +46,7 @@ export function Message({ name, poster, rating, summary ,id, deleteButton}) {
       <div className="movie-counter-del">
        <Counter />
      {deleteButton}
+     {editButton}
       </div>
       </CardActions>
     </Card>

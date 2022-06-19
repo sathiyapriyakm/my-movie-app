@@ -13,7 +13,7 @@ export function AddMovie() {
   const [trailer, setTrailer] = useState('');
   const navigate=useNavigate();
   const newMovie={"name": name,"poster":poster,"rating":rating,"summary":summary,"trailer":trailer};
-  const handleSubmit =() => {
+  const addMovie =() => {
     fetch("https://62aa7f0d371180affbd633f8.mockapi.io/movies", {
     method: "POST",
     body: JSON.stringify(newMovie),
@@ -21,19 +21,11 @@ export function AddMovie() {
       "Content-Type": "application/json",
     },
   }).then(() => navigate("/Movies"));
-
-    // event.preventDefault(); //prevent page refresh
-    // clear all input values in the form
-    // setName('');
-    // setPoster('');
-    // setRating('');
-    // setSummary('');
-    // setTrailer('');
   };
   
   return <div
       className="add-movie-spec">
-      <form  className="add-movie-form" onSubmit={handleSubmit}>
+      <form  className="add-movie-form" >
         
         <TextField
         className="add-movie-name"
@@ -70,7 +62,7 @@ export function AddMovie() {
           value={trailer}
           onChange={event => setTrailer(event.target.value)}
         />
-        <Button className="add-movie-btn" variant="contained" type="submit">ADD MOVIE</Button>
+        <Button className="add-movie-btn" onClick={addMovie} variant="contained" type="submit">ADD MOVIE</Button>
       </form> 
     </div>;
 }

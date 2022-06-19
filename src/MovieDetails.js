@@ -12,7 +12,6 @@ export function MovieDetails() {
     color: movie.rating > 8 ? "green" : "red",
   };
 
-  console.log(movieId);
   const getMovie=()=>{
     fetch(`https://62aa7f0d371180affbd633f8.mockapi.io/movies/${movieId}`,{
       method:"GET",
