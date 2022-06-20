@@ -18,6 +18,7 @@ import Brightness7Icon from '@mui/icons-material/Brightness7';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import {TicTacToe} from "./TicTacToe";
 import {EditMovie} from "./EditMovie";
+import { BasicForm } from "./BasicForm";
 
 function App() {
 
@@ -61,6 +62,7 @@ const darkTheme = createTheme({
         <Route path="/404" element={<NotFound/>}/>
         <Route path="/films" element={<Navigate replace to="/Movies"/>}/>
         <Route path="/*" element={<Navigate replace to="/404"/>}/>
+        <Route path="/basic-form" element={<BasicForm/>}/>
       </Routes>
     </section>     
     </div>
@@ -70,3 +72,4 @@ const darkTheme = createTheme({
 }
 
  export default App;
+
