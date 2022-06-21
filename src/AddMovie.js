@@ -1,68 +1,106 @@
 import React from "react";
-import { useState } from "react";
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { useNavigate } from "react-router-dom";
+import { useFormik } from "formik";
+import * as yup from "yup";
 
 
 export function AddMovie() {
-  const [name, setName] = useState('');
-  const [poster, setPoster] = useState('');
-  const [rating, setRating] = useState('');
-  const [summary, setSummary] = useState('');
-  const [trailer, setTrailer] = useState('');
+  
   const navigate=useNavigate();
-  const newMovie={"name": name,"poster":poster,"rating":rating,"summary":summary,"trailer":trailer};
-  const addMovie =() => {
+  
+  const movieValidationSchema=yup.object({
+    name:yup.string().required("why not fill this name?"),
+    poster:yup.string().required("why not fill this poster?").min(5,"Need a bigger poster"),
+    rating:yup.number().required("why not fill this rating?").min(1,"Need a better rating").max(10,"Too much rating"),
+    summary:yup.string().required("why not fill this summary?").min(20,"Need a bigger summary"),
+    trailer:yup.string().required("why not fill this trailer?").min(5,"Need a bigger trailer"),
+  })
+  
+  const addMovie =(newMovie) => {
     fetch("https://62aa7f0d371180affbd633f8.mockapi.io/movies", {
     method: "POST",
     body: JSON.stringify(newMovie),
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type" : "application/json",
     },
   }).then(() => navigate("/Movies"));
   };
   
+  const {handleBlur,handleChange,handleSubmit,values,errors,touched}=useFormik({
+    initialValues:{
+      name:"",
+      poster:"",
+      rating:"",
+      summary:"",
+      trailer:"",
+    },
+    validationSchema:movieValidationSchema ,
+    onSubmit:(newMovie)=>{
+      console.log("onSubmit",newMovie);
+      addMovie(newMovie);
+    },
+  });
+  
   return <div
       className="add-movie-spec">
-      <form  className="add-movie-form" >
+      <form onSubmit={handleSubmit}
+      className="add-movie-form" >
         
         <TextField
         className="add-movie-name"
         label="Name"
-        type="text"
-        value={name}
-        onChange={event => setName(event.target.value)}
+        type="text" 
+        value={values.name} 
+        name="name"
+        onChange={handleChange}
+        onBlur={handleBlur}
         />
+         {touched.name&&errors.name?errors.name:""}
         <TextField
         className="add-movie-name"
         label="Poster"
         type="text"
-        value={poster}
-        onChange={event => setPoster(event.target.value)}
+        value={values.poster} 
+        name="poster"
+        onChange={handleChange}
+        onBlur={handleBlur}
         />
+         {touched.poster&&errors.poster?errors.poster:""}
        <TextField
        className="add-movie-name"
        label="Rating"
        type="text"
-       value={rating}
-       onChange={event => setRating(event.target.value)}
+       value={values.rating} 
+       name="rating"
+       onChange={handleChange}
+       onBlur={handleBlur}
        />
+        {touched.rating&&errors.rating?errors.rating:""}
        <TextField
           className="add-movie-name"
           label="Summary"
           type="text"
-          value={summary}
-          onChange={event => setSummary(event.target.value)}
+          value={values.summary} 
+          name="summary"
+          onChange={handleChange}
+           onBlur={handleBlur}
         />
+         {touched.summary&&errors.summary?errors.summary:""}
        <TextField
           className="add-movie-name"
           label="Trailer"
           type="text"
-          value={trailer}
-          onChange={event => setTrailer(event.target.value)}
+          value={values.trailer} 
+          name="trailer"
+          onChange={handleChange}
+          onBlur={handleBlur}
         />
-        <Button className="add-movie-btn" onClick={addMovie} variant="contained" type="submit">ADD MOVIE</Button>
+         {touched.trailer&&errors.trailer?errors.trailer:""}
+        <Button className="add-movie-btn" 
+        type="submit"
+        variant="contained">ADD MOVIE</Button>
       </form> 
     </div>;
 }

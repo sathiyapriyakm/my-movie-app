@@ -19,7 +19,7 @@ export function BasicForm() {
     onSubmit:(values)=>{
       console.log("onSubmit",values);
     },
-  })
+  });
   return (
     <div style={{height:"60px", width:"200px"}}>
       <h1>Basic Form</h1>
