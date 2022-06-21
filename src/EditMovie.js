@@ -37,13 +37,6 @@ export function EditMovie() {
 
   const navigate = useNavigate();
 
-    // const [name, setName] = useState(movie.name);
-    // const [poster, setPoster] = useState(movie.poster);
-    // const [rating, setRating] = useState(movie.rating);
-    // const [summary, setSummary] = useState(movie.summary);
-    // const [trailer, setTrailer] = useState(movie.trailer);
-  
-    // const updatedMovie={"name": name,"poster":poster,"rating":rating,"summary":summary,"trailer":trailer};
     const editMovie =(updatedMovie) => {
       fetch(`https://62aa7f0d371180affbd633f8.mockapi.io/movies/${movie.id}`,
       {
@@ -83,8 +76,9 @@ export function EditMovie() {
         name="name"
         onChange={handleChange}
         onBlur={handleBlur}
+        error={touched.name&&errors.name?true:false}
+        helperText={touched.name&&errors.name?errors.name:""}
         />
-        {touched.name&&errors.name?errors.name:""}
         <TextField
         className="add-movie-name"
         label="Poster"
@@ -92,8 +86,9 @@ export function EditMovie() {
         name="poster"
         onChange={handleChange}
         onBlur={handleBlur}
+        error={touched.poster&&errors.poster?true:false}
+        helperText={touched.poster&&errors.poster?errors.poster:""}
         />
-        {touched.poster&&errors.poster?errors.poster:""}
        <TextField
        className="add-movie-name"
        label="Rating"
@@ -102,8 +97,9 @@ export function EditMovie() {
        name="rating"
        onChange={handleChange}
        onBlur={handleBlur}
+       error={touched.rating&&errors.rating?true:false}
+       helperText={touched.rating&&errors.rating?errors.rating:""}
        />
-        {touched.rating&&errors.rating?errors.rating:""}
        <TextField
           className="add-movie-name"
           label="Summary"
@@ -112,8 +108,9 @@ export function EditMovie() {
           name="summary"
           onChange={handleChange}
            onBlur={handleBlur}
+           error={touched.summary&&errors.summary?true:false}
+           helperText= {touched.summary&&errors.summary?errors.summary:""}
         />
-         {touched.summary&&errors.summary?errors.summary:""}
        <TextField
           className="add-movie-name"
           label="Trailer"
@@ -122,9 +119,11 @@ export function EditMovie() {
           name="trailer"
           onChange={handleChange}
           onBlur={handleBlur}
+          error={touched.trailer&&errors.trailer?true:false}
+          helperText= {touched.trailer&&errors.trailer?errors.trailer:""}
         />
-         {touched.trailer&&errors.trailer?errors.trailer:""}
          <Button className="add-movie-btn" 
+          color="success"
         type="submit"
         variant="contained">SAVE</Button>
       </form> 

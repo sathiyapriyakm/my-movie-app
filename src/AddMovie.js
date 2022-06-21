@@ -56,8 +56,9 @@ export function AddMovie() {
         name="name"
         onChange={handleChange}
         onBlur={handleBlur}
+        error={touched.name&&errors.name?true:false}
+        helperText={touched.name&&errors.name?errors.name:""}
         />
-         {touched.name&&errors.name?errors.name:""}
         <TextField
         className="add-movie-name"
         label="Poster"
@@ -66,8 +67,9 @@ export function AddMovie() {
         name="poster"
         onChange={handleChange}
         onBlur={handleBlur}
+        error={touched.poster&&errors.poster?true:false}
+        helperText={touched.poster&&errors.poster?errors.poster:""}
         />
-         {touched.poster&&errors.poster?errors.poster:""}
        <TextField
        className="add-movie-name"
        label="Rating"
@@ -76,8 +78,10 @@ export function AddMovie() {
        name="rating"
        onChange={handleChange}
        onBlur={handleBlur}
+       error={touched.rating&&errors.rating?true:false}
+       helperText={touched.rating&&errors.rating?errors.rating:""}
        />
-        {touched.rating&&errors.rating?errors.rating:""}
+        
        <TextField
           className="add-movie-name"
           label="Summary"
@@ -86,8 +90,9 @@ export function AddMovie() {
           name="summary"
           onChange={handleChange}
            onBlur={handleBlur}
+           error={touched.summary&&errors.summary?true:false}
+           helperText= {touched.summary&&errors.summary?errors.summary:""}
         />
-         {touched.summary&&errors.summary?errors.summary:""}
        <TextField
           className="add-movie-name"
           label="Trailer"
@@ -96,8 +101,10 @@ export function AddMovie() {
           name="trailer"
           onChange={handleChange}
           onBlur={handleBlur}
+          error={touched.trailer&&errors.trailer?true:false}
+          helperText= {touched.trailer&&errors.trailer?errors.trailer:""}
         />
-         {touched.trailer&&errors.trailer?errors.trailer:""}
+        
         <Button className="add-movie-btn" 
         type="submit"
         variant="contained">ADD MOVIE</Button>
