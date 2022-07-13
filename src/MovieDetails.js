@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import {useState,useEffect} from 'react';
 import Button from '@mui/material/Button';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import { API } from "./global"; 
 
 export function MovieDetails() {
   const { movieId } = useParams();
@@ -13,7 +14,7 @@ export function MovieDetails() {
   };
 
   const getMovie=()=>{
-    fetch(`https://62aa7f0d371180affbd633f8.mockapi.io/movies/${movieId}`,{
+    fetch(`${API}/movies/${movieId}`,{
       method:"GET",
     }
     )

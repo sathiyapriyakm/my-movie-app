@@ -44,6 +44,7 @@ const darkTheme = createTheme({
       <Button color="inherit" onClick={()=>navigate("/color-game")}>Color Game</Button>
       <Button color="inherit" onClick={()=>navigate("/Tic-tac-toe-game")}>TicTacToe Game</Button>
       <Button 
+      style={{marginLeft:"auto"}}
       startIcon={mode==="dark"?<Brightness7Icon/>:<Brightness4Icon/>}
       color="inherit" 
       onClick={()=>{setMode(mode==="light"?"dark":"light")}}>

@@ -7,13 +7,14 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useFormik } from "formik";
 import * as yup from "yup";
+import { API } from "./global";
 
 
 export function EditMovie() {
   const { id } = useParams();
   const [movie,setMovie]=useState(null);
   const getMovie=()=>{
-    fetch(`https://62aa7f0d371180affbd633f8.mockapi.io/movies/${id}`,{
+    fetch(`${API}/movies/${id}`,{
       method:"GET",
     }
     )
@@ -38,7 +39,7 @@ export function EditMovie() {
   const navigate = useNavigate();
 
     const editMovie =(updatedMovie) => {
-      fetch(`https://62aa7f0d371180affbd633f8.mockapi.io/movies/${movie.id}`,
+      fetch(`${API}/movies/${movie.id}`,
       {
         method:"PUT",
         body: JSON.stringify(updatedMovie),
