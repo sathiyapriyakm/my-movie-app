@@ -47,7 +47,7 @@ export function Movie() {
   editButton={<IconButton 
     aria-label="Movie-edit-button" 
     color="secondary" 
-    onClick={()=>navigate(`/Movies/edit/${disp._id}`)}>
+    onClick={()=>navigate(`/movies/edit/${disp._id}`)}>
     <EditIcon />
   </IconButton>}
       />))}

@@ -39,8 +39,8 @@ const darkTheme = createTheme({
     <AppBar position="static">
     <Toolbar>
       <Button color="inherit" onClick={()=>navigate("/")}>Home</Button>
-      <Button color="inherit" onClick={()=>navigate("/Movies")}>Movies</Button>
-      <Button color="inherit" onClick={()=>navigate("/Movies/add")}>Add Movies</Button>
+      <Button color="inherit" onClick={()=>navigate("/movies")}>Movies</Button>
+      <Button color="inherit" onClick={()=>navigate("/movies/add")}>Add Movies</Button>
       <Button color="inherit" onClick={()=>navigate("/color-game")}>Color Game</Button>
       <Button color="inherit" onClick={()=>navigate("/Tic-tac-toe-game")}>TicTacToe Game</Button>
       <Button 
@@ -54,14 +54,14 @@ const darkTheme = createTheme({
     <section className="routes-container">
     <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path="/Movies/:movieId" element={<MovieDetails />}/>
+        <Route path="/movies/:movieId" element={<MovieDetails />}/>
         <Route path="/color-game" element={<AddColor/>}/>
         <Route path="/Tic-tac-toe-game" element={<TicTacToe/>}/>
-        <Route path="/Movies" element={<Movie/>}/>
-        <Route path="/Movies/add" element={<AddMovie />}/>
-        <Route path="/Movies/edit/:id" element={<EditMovie/>}/>
+        <Route path="/movies" element={<Movie/>}/>
+        <Route path="/movies/add" element={<AddMovie />}/>
+        <Route path="/movies/edit/:id" element={<EditMovie/>}/>
         <Route path="/404" element={<NotFound/>}/>
-        <Route path="/films" element={<Navigate replace to="/Movies"/>}/>
+        <Route path="/films" element={<Navigate replace to="/movies"/>}/>
         <Route path="/*" element={<Navigate replace to="/404"/>}/>
         <Route path="/basic-form" element={<BasicForm/>}/>
       </Routes>

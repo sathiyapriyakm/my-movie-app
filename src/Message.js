@@ -26,7 +26,7 @@ export function Message({ name, poster, rating, summary ,id, deleteButton,editBu
     <div className="movie-specs">
       <h3 className="movie-name">
         {name}
-      <IconButton aria-label="Movie Details" color="primary" onClick={()=>navigate(`/Movies/${id}`)}>
+      <IconButton aria-label="Movie Details" color="primary" onClick={()=>navigate(`/movies/${id}`)}>
         <InfoIcon />
       </IconButton> 
       <IconButton aria-label="Movie Details" color="primary" onClick={() => setShow(!show)}>

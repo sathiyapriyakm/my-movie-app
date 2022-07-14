@@ -39,13 +39,13 @@ export function EditMovie() {
   const navigate = useNavigate();
 
     const editMovie =(updatedMovie) => {
-      fetch(`${API}/movies/${movie.id}`,
+      fetch(`${API}/movies/${movie._id}`,
       {
         method:"PUT",
         body: JSON.stringify(updatedMovie),
         headers:{"Content-Type":"application/json"},
-    }).then(()=>{navigate("/Movies")}).catch((e)=>console.log("ERROR"));
-    //  navigate("/Movies");
+    }).then(()=>{navigate("/movies")}).catch((e)=>console.log("ERROR"));
+    //  navigate("/movies");
     };
 
     const {handleBlur,handleChange,handleSubmit,values,errors,touched}=useFormik({

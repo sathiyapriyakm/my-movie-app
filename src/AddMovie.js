@@ -26,7 +26,7 @@ export function AddMovie() {
     headers: {
       "Content-Type" : "application/json",
     },
-  }).then(() => navigate("/Movies"));
+  }).then(() => navigate("/movies"));
   };
   
   const {handleBlur,handleChange,handleSubmit,values,errors,touched}=useFormik({
