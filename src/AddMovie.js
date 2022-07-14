@@ -20,7 +20,9 @@ export function AddMovie() {
   })
   
   const addMovie =(newMovie) => {
-    fetch(`${API}/movies`, {
+    console.log(API);
+    console.log(newMovie);
+    fetch(`${API}/movies/add`, {
     method: "POST",
     body: JSON.stringify(newMovie),
     headers: {
