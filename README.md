@@ -6,7 +6,7 @@
 
 ## Brief Description
 
-My Movie App is a web application used to view movie information, trailor and users can like or dislike the movie based on their experience.
+My Movie App is a web application used to view movie information, trailor and summary . Users can like or dislike the movie based on their experience. Users can switch between dark and light mode based on their convenience.
 
 ### `Short tech summary`
 
@@ -28,6 +28,7 @@ My Movie App is a web application used to view movie information, trailor and us
   - ExpressJS
   - NodeJS
   - MongoDB
+  - Context is used for Dark and Light Theming of APP.
   
 
 ## Screenshots📷
