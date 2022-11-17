@@ -36,7 +36,7 @@ const darkTheme = createTheme({
     <ThemeProvider theme={darkTheme}>
       <Paper elevation={4} style={{minHeight:"100vh",borderRadius:"0px"}} >
     <div className="App">
-    <AppBar position="static">
+    <AppBar position="sticky">
     <Toolbar>
       <Button color="inherit" onClick={()=>navigate("/")}>Home</Button>
       <Button color="inherit" onClick={()=>navigate("/movies")}>Movies</Button>
