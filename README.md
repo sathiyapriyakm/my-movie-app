@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# [My Movieapp](https://wonderful-sunshine-b9cc76.netlify.app) - MERN Stack Website
+  [Front End](https://github.com/sathiyapriyakm/my-movie-app)
+  [Back End](https://github.com/sathiyapriyakm/node_app)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+## Brief Description
 
-### `npm start`
+My Movie App is a web application used to view movie information, trailor and users can like or dislike the movie based on their experience.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### `Short tech summary`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+  - React is Used for Front end and nodeJS as Back end along with MongoDB as database  
+  - Express Js is used to build the server with Node Js.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Features
 
-### `npm run build`
+### `User features`
+  - User can add ,edit and delete  movie in this App.
+  - User can view the movie summary, Likes, dislikes, rating and trailer of the movie.
+  - User can play TIC TAC TOE game till they witness their win.
+  - User can play a color game to choose and add color.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  
+## Tech Used
+  - ReactJS
+  - ExpressJS
+  - NodeJS
+  - MongoDB
+  
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Screenshots📷
+- Homepage
+![Homepage](/ScreenShots/Homepage.JPG "Homepage")
+- Movies Page
+![Movies Page](/ScreenShots/MoviesPage.JPG "Movies Page")
+- Trailer Page
+![Trailer Page](/ScreenShots/TrailerPage.JPG "Trailer Page")
+- Add Movies Page
+![Add Movies Page](/ScreenShots/AddMoviesPage.JPG "Add Movies Page")
+- Color Game
+![Color Game](/ScreenShots/ColorGame.JPG "Color Game")
+- Tic Tac Toe Game
+![Tic Tac Toe Game](/ScreenShots/TicTacToeGame.JPG "Tic Tac Toe Game")
