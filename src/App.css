@@ -20,7 +20,7 @@
 } */
 
 .movie-poster {
-  height: 340px;
+  height: 440px;
   width: 340px;
   /* zoom  in */
   object-fit: cover;
